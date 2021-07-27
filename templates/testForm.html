@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="/testFinshed/">
+    {% csrf_token %}
+    Chinese Keyword:<input type="text" name="chinese_keyword"  maxlength="90" required="" id="id_chinese_keyword"><br>
+    English Keyword:<input type="text" name="english_keyword"  maxlength="90" required="" id="id_english_keyword"><br>
+    Status:<input type="text" name="status"  maxlength="90" required="" id="id_status"><br>
+    Similar set:<input type="text" name="similar set"  maxlength="90" required="" id="id_similarset"><br>
+    Comment:<input type="text" name="comment"  maxlength="90" required="" id="id_comment"><br>
+    Subbusiness:<select name="subbusiness" required="" id="id_subbusiness"><br>
+        {% for subbus in allSubbuniess %}
+          <option value="{{ subbus.id }}" selected="">{{ subbus }}</option>
+        {% endfor %}
+        </select><br>
+    <input type="submit" value="Save" class="default" name="_save">
+    </form>
+</body>
+</html>
